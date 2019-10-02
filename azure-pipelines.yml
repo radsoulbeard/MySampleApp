@@ -11,10 +11,10 @@ resources:
     options: --user 0:0
   - container: cfcli
     image: 'radsoulbeard/cf-cli'
-    options: --user 0:0 --privileged --env CF_HOME="/home/piper"
+    options: --user 0:0 --privileged
   - container: node
-    image: 'radsoulbeard/agnosticmta:latest'
-    options: --user 0:0
+    image: 'geekykaran/headless-chrome-node-docker:latest'
+    options: --privileged
 
 trigger:
 - master
@@ -40,7 +40,7 @@ stages:
         vmImage: 'ubuntu-latest'
       container: node
       steps:
-        - bash: 'cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" -g && npm install && npm run-script test'
+        - bash: 'cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" && npm install && npm run-script test'
 
 - stage: deploy
   displayName: Deployment to SAP Cloud Platform (neo)
