@@ -13,8 +13,8 @@ resources:
     image: 'radsoulbeard/cf-cli'
     options: --user 0:0 --privileged --env CF_HOME="/home/piper"
   - container: node
-    image: 'node:latest'
-    options: --privileged
+    image: 'radsoulbeard/agnosticmta:latest'
+    options: --user 0:0
 
 trigger:
 - master
