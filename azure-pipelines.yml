@@ -1,0 +1,55 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+name: cd-openui5-sample-app
+resources:
+  containers:
+  - container: mta
+    image: 'radsoulbeard/agnosticmta:latest'
+    options: --user 0:0
+  - container: cfcli
+    image: 'radsoulbeard/cf-cli'
+    options: --user 0:0 --privileged --env CF_HOME="/home/piper"
+  - container: node
+    image: 'geekykaran/headless-chrome-node-docker:latest'
+    options: --privileged
+
+trigger:
+- master
+
+stages:
+- stage: build
+  displayName: Build MTA for SAP Cloud Platform
+  jobs:
+    - job: build
+      pool:
+        vmImage: 'ubuntu-latest'
+      container: mta
+      steps:
+        - bash: 'mtaBuild --build-target CF --mtar target/out.mtar build && ls -la'
+        - publish: target/out.mtar
+          artifact: out.mtar
+
+- stage: test
+  displayName: Run Karma Test Suite
+  jobs:
+    - job: test
+      pool:
+        vmImage: 'ubuntu-latest'
+      container: node
+      steps:
+        - bash: 'npm install && npm run-script test'
+
+- stage: deploy
+  displayName: Deployment to SAP Cloud Platform (neo)
+  jobs:
+    - job: deploy
+      pool:
+        vmImage: 'ubuntu-latest'
+      container: cfcli
+      steps:
+        - download: current
+          artifact: out.mtar
+        - bash: 'cf login -u "$(CF-USER)" -p "$(CF-PASSWORD)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" && cf deploy $(Pipeline.Workspace)/out.mtar'
