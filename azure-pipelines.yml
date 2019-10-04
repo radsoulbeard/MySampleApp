@@ -29,7 +29,8 @@ stages:
       container: mta
       steps:
         - bash: 'mtaBuild --build-target CF --mtar MySampleApp.mtar build && ls -la'
-        - publish: *
+        - publish: $(System.DefaultWorkingDirectory)/.
+          artifact: WebApp
           
 
 - stage: test
@@ -51,4 +52,5 @@ stages:
       container: cfcli
       steps:
         - download: current
+          artifact: WebApp
         - bash: 'ls -la $(Pipeline.Workspace) && cf login -u "$(CF-USER)" -p "$(CF-PASSWORD)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" && cf deploy $(Pipeline.Workspace)/MySampleApp.mtar -f'
