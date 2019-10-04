@@ -29,8 +29,8 @@ stages:
       container: mta
       steps:
         - bash: 'mtaBuild --build-target CF --mtar MySampleApp.mtar build && ls -la'
-        - publish: MySampleApp.mtar
-          artifact: MySampleApp.mtar
+        - publish: *
+          
 
 - stage: test
   displayName: Run Karma Test Suite
@@ -51,5 +51,4 @@ stages:
       container: cfcli
       steps:
         - download: current
-          artifact: MySampleApp.mtar
-        - bash: 'ls -la && cf login -u "$(CF-USER)" -p "$(CF-PASSWORD)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" && cf deploy $(Pipeline.Workspace)/MySampleApp.mtar -f'
+        - bash: 'ls -la $(Pipeline.Workspace) && cf login -u "$(CF-USER)" -p "$(CF-PASSWORD)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" && cf deploy $(Pipeline.Workspace)/MySampleApp.mtar -f'
