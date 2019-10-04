@@ -7,7 +7,7 @@ name: cd-openui5-sample-app
 resources:
   containers:
   - container: mta
-    image: 'radsoulbeard/agnosticmta:latest'
+    image: 'ppiper/mta-archive-builder:latest'
     options: --user 0:0
   - container: cfcli
     image: 'radsoulbeard/cf-cli'
