@@ -1,6 +1,7 @@
 steps:
   mtaBuild:
     buildTarget: 'CF'
+    dockerImage: 'radsoulbeard/agnosticmta:latest'
   cloudFoundryDeploy:
     cloudFoundry:
       credentialsId: 'CF'
