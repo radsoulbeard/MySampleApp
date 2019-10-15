@@ -10,7 +10,7 @@ resources:
     image: 'ppiper/mta-archive-builder:latest'
     options: --user 0:0
   - container: cfcli
-    image: 'radsoulbeard/cf-cli'
+    image: 'ppiper/cf-cli'
     options: --user 0:0 --privileged
   - container: node
     image: 'geekykaran/headless-chrome-node-docker:latest'
