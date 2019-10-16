@@ -10,6 +10,10 @@ node(){
   stage('Build')   {
       mtaBuild script:this
   }
+  
+  stage('Test') {
+     karmaExecuteTests script: this
+  }
 
   stage('Deploy')   {
       cloudFoundryDeploy script:this, deployTool:'mtaDeployPlugin', verbose: true
