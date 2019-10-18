@@ -12,7 +12,7 @@ node(){
   }
   
   stage('Test') {
-     karmaExecuteTests script: this
+     karmaExecuteTests script: this, runCommand:'npm run-script test'
   }
 
   stage('Deploy')   {
