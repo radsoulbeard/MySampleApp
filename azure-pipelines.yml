@@ -42,6 +42,8 @@ stages:
       container: node
       steps:
         - bash: 'cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" && npm install && npm run-script test'
+        - publish: $(System.DefaultWorkingDirectory)/.
+          artifact: TestResult
 
 - stage: deploy
   displayName: Deployment to SAP Cloud Platform (cf)
