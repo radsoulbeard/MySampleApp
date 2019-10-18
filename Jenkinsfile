@@ -12,7 +12,7 @@ node(){
   }
   
   stage('Test') {
-     karmaExecuteTests script: this, modules:'./MySampleApp'
+     karmaExecuteTests script: this, modules:['./MySampleApp']
   }
 
   stage('Deploy')   {
