@@ -12,4 +12,4 @@ steps:
     modules: ['./MySampleApp']
     runCommand: npm run test
   influxWriteData:
-   influxServer: 'http://localhost:8086'
+   influxServer: 'jenkins'
