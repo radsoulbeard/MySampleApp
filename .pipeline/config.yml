@@ -8,5 +8,5 @@ steps:
       apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
       org: 'pipertest'
       space: 'pipertestspace'
-   influxWriteData:
-    influxServer: 'http://localhost:8086'
+  influxWriteData:
+   influxServer: 'http://localhost:8086'
