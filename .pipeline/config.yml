@@ -8,5 +8,8 @@ steps:
       apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
       org: 'pipertest'
       space: 'pipertestspace'
+  karmaExecute:
+    modules: ['./MySampleApp']
+    runCommand: npm run test
   influxWriteData:
    influxServer: 'http://localhost:8086'
