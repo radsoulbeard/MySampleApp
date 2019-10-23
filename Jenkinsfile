@@ -12,7 +12,9 @@ node(){
   }
   
   stage('Test') {
-     karmaExecuteTests script: this
+     npmExecute script: this {
+	   sh 'cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" && npm install && npm run-script test'
+	 }
   }
 
   stage('Deploy')   {
