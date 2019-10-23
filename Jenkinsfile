@@ -12,7 +12,7 @@ node(){
   }
   
   stage('Test') {
-     npmExecute( script: this ) {
+     npmExecute( script: this, dockerImage: 'geekykaran/headless-chrome-node-docker:latest' ) {
 	   sh 'cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" && npm install && npm run-script test'
 	 }
   }
