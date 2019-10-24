@@ -1,7 +1,7 @@
 steps:
   mtaBuild:
     buildTarget: 'CF'
-    dockerImage: 'radsoulbeard/agnosticmta:latest'
+    dockerImage: 'ppiper/mta-archive-builder:latest:latest'
   cloudFoundryDeploy:
     cloudFoundry:
       credentialsId: 'CF'
