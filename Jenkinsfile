@@ -20,7 +20,7 @@ node(){
 		   groupadd test_runner_sudo
 		   usermod -a -G test_runner_sudo test_runner
 		   su -c "echo '%test_runner_sudo ALL=(ALL:ALL) NOPASSWD:ALL' >> /etc/sudoers"
-		   su test_runner
+		   su -l test_runner
 		   cd MySampleApp
 		   sudo npm config set @sap:registry "https://npm.sap.com" 
 		   sudo npm install 
