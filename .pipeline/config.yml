@@ -1,7 +1,7 @@
 steps:
   mtaBuild:
     buildTarget: 'CF'
-    dockerImage: 'ppiper/mta-archive-builder:latest:latest'
+    dockerImage: 'ppiper/mta-archive-builder:latest'
   cloudFoundryDeploy:
     cloudFoundry:
       credentialsId: 'CF'
