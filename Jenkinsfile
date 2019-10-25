@@ -7,9 +7,9 @@ node(){
       setupCommonPipelineEnvironment script:this
   }
 
-  stage('Build')   {
-      mtaBuild script:this
-  }
+ // stage('Build')   {
+ //     mtaBuild script:this
+ // }
   
   stage('Test') {
      dockerExecute ( script: this, dockerOptions: '--user 0:0' ,dockerImage: 'geekykaran/headless-chrome-node-docker:latest' ) {
@@ -20,7 +20,7 @@ node(){
 		   groupadd test_runner_sudo
 		   usermod -a -G test_runner_sudo test_runner
 		   su -c "echo '%test_runner_sudo ALL=(ALL:ALL) NOPASSWD:ALL' >> /etc/sudoers"
-		   su test_runner -c "cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" && npm install && npm run-script test"
+		   su test_runner -c "cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" && npm install && sudo npm run-script test"
 	   '''
 	 }
   }
