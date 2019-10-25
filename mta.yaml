@@ -28,7 +28,7 @@ modules:
     type: html5
     path: MySampleApp
     build-parameters:
-      builder: npm run build
+      builder: zip
       supported-platforms: []
       build-result: dist
 resources:
