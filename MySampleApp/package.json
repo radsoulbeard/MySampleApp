@@ -15,6 +15,11 @@
     "qunit": "^2.9.3",
     "rimraf": "2.6.2"
   },
+  "dependencies": {
+    "@openui5/sap.m": "^1.67.1",
+    "@openui5/sap.ui.core": "^1.67.1",
+    "@openui5/themelib_sap_fiori_3": "^1.67.1"
+  },
   "scripts": {
     "grunt-test": "grunt unit_and_integration_tests",
     "start": "ui5 serve",
