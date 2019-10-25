@@ -10,5 +10,6 @@ steps:
       space: 'pipertestspace'
   karmaExecuteTests:
     modules: ['./MySampleApp']
+    runCommand: 'npm run karma-ci'
   influxWriteData:
    influxServer: 'jenkins'
