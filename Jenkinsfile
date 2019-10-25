@@ -12,15 +12,9 @@ node(){
  // }
   
   stage('Test') {
-     dockerExecute ( script: this, dockerOptions: '--user 0:0' ,dockerImage: 'geekykaran/headless-chrome-node-docker:latest' ) {
+     dockerExecute ( script: this, dockerImage: 'node:8-stretch' ) {
 	   sh '''
-	       echo "Create Test Runner User"
-		   useradd -m -u 1000 test_runner
-		   echo "Create Test Runner Sudoer Group"
-		   groupadd test_runner_sudo
-		   usermod -a -G test_runner_sudo test_runner
-		   su -c "echo '%test_runner_sudo ALL=(ALL:ALL) NOPASSWD:ALL' >> /etc/sudoers"
-		   su test_runner -c "cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" && npm install && sudo npm run-script test"
+		   cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" && npm install && sudo npm run-script test
 	   '''
 	 }
   }
