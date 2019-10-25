@@ -4,20 +4,15 @@
   "devDependencies": {
     "@sap/grunt-sapui5-bestpractice-build": "1.4.1",
     "@sap/grunt-sapui5-bestpractice-test": "2.0.1",
-    "@ui5/cli": "^1.2.0",
-    "eslint": "^4.19.1",
-    "karma": "^4.0.1",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage": "^1.1.2",
-    "karma-junit-reporter": "^1.2.0",
-    "karma-ui5": "^1.0.0",
-    "karma-webdriver-launcher": "^1.0.5",
-    "rimraf": "^2.6.2"
-  },
-  "dependencies": {
-    "@openui5/sap.m": "^1.60.0",
-    "@openui5/sap.ui.core": "^1.60.0",
-    "@openui5/themelib_sap_belize": "^1.60.0"
+    "@ui5/cli": "1.2.0",
+    "eslint": "4.19.1",
+    "karma": "4.0.1",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-coverage": "1.1.2",
+    "karma-junit-reporter": "1.2.0",
+    "karma-ui5": "1.0.0",
+    "karma-webdriver-launcher": "1.0.5",
+    "rimraf": "2.6.2"
   },
   "scripts": {
     "grunt-test": "grunt unit_and_integration_tests",
