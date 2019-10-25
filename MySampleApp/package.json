@@ -12,12 +12,8 @@
     "karma-junit-reporter": "1.2.0",
     "karma-ui5": "1.0.0",
     "karma-webdriver-launcher": "1.0.5",
+    "qunit": "^2.9.3",
     "rimraf": "2.6.2"
-  },
-  "dependencies": {
-    "@openui5/sap.m": "1.60.0",
-    "@openui5/sap.ui.core": "1.60.0",
-    "@openui5/themelib_sap_belize": "1.60.0"
   },
   "scripts": {
     "grunt-test": "grunt unit_and_integration_tests",
