@@ -14,7 +14,7 @@ node(){
   stage('Test') {
      dockerExecute ( script: this, dockerImage: 'node:8-stretch' ) {
 	   sh '''
-		   cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" && npm install && sudo npm run-script test
+		   cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" && npm install && npm run-script test
 	   '''
 	 }
   }
