@@ -28,7 +28,7 @@ modules:
     type: html5
     path: MySampleApp
     build-parameters:
-      builder: zip
+      builder: grunt
       supported-platforms: []
       build-result: dist
 resources:
