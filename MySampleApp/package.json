@@ -3,9 +3,32 @@
   "description": "",
   "devDependencies": {
     "@sap/grunt-sapui5-bestpractice-build": "1.4.1",
-    "@sap/grunt-sapui5-bestpractice-test": "2.0.1"
+    "@sap/grunt-sapui5-bestpractice-test": "2.0.1",
+    "@ui5/cli": "^1.2.0",
+    "eslint": "^4.19.1",
+    "karma": "^4.0.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.2",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-ui5": "^1.0.0",
+    "karma-webdriver-launcher": "^1.0.5",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "@openui5/sap.m": "^1.60.0",
+    "@openui5/sap.ui.core": "^1.60.0",
+    "@openui5/themelib_sap_belize": "^1.60.0"
   },
   "scripts": {
-    "test": "grunt unit_and_integration_tests"
+    "grunt-test": "grunt unit_and_integration_tests",
+    "start": "ui5 serve",
+    "lint": "eslint webapp",
+    "karma": "karma start",
+    "karma-ci": "karma start karma-ci.conf.js",
+    "karma-compose": "docker-compose --file webapp/test/docker-compose.yml up --abort-on-container-exit",
+    "watch": "npm run karma",
+    "test": "npm run lint && rimraf coverage && npm run karma-ci",
+    "build": "rimraf dist && ui5 build --a",
+    "jenkinsfile": "docker run --rm -v /tmp -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/workspace -e CASC_JENKINS_CONFIG=/workspace/jenkins.yml ppiper/jenkinsfile-runner"
   }
 }
