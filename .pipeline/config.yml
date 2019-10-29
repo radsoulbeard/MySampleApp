@@ -22,5 +22,3 @@ steps:
     runCommand: 'npm run karma-ci'
   artifactSetVersion:
     commitVersion: false
-  influxWriteData:
-   influxServer: ''
