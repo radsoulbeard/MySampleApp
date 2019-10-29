@@ -7,6 +7,9 @@ stages:
   'Release':
     cloudFoundryDeploy: true
 steps:
+  mtaBuild:
+    buildTarget: 'CF'
+    dockerImage: 'ppiper/mta-archive-builder:latest'
   cloudFoundryDeploy:
     cloudFoundry:
       credentialsId: 'CF'
