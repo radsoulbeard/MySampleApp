@@ -23,4 +23,4 @@ steps:
   artifactSetVersion:
     commitVersion: false
   influxWriteData:
-   influxServer: 'jenkins'
+   influxServer: ''
