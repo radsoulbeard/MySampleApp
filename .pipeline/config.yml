@@ -1,3 +1,11 @@
+general:
+  buildTool: 'mta'
+  productiveBranch: 'piperPipeline'
+stages:
+  'Additional Unit Tests':
+    karmaExecuteTests: true
+  'Release':
+    cloudFoundryDeploy: true
 steps:
   mtaBuild:
     buildTarget: 'CF'
