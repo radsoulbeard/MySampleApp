@@ -1,6 +1,6 @@
 general:
-  buildTool: 'mta'
-  productiveBranch: 'piperPipeline'
+  buildTool: mta
+  productiveBranch: piperPipeline
 stages:
   'Additional Unit Tests':
     karmaExecuteTests: true
