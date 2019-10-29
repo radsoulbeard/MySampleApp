@@ -20,5 +20,7 @@ steps:
   karmaExecuteTests:
     modules: ['./MySampleApp']
     runCommand: 'npm run karma-ci'
+  setVersion:
+    commitVersion: false
   influxWriteData:
    influxServer: 'jenkins'
