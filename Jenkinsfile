@@ -1,25 +1,36 @@
 @Library('piper-lib-os') _
 
-node(){
-  stage('Prepare')   {
-      deleteDir()
-      checkout scm
-      setupCommonPipelineEnvironment script:this
-  }
+pipeline {
+  agent any
+  environment {
 
- // stage('Build')   {
- //     mtaBuild script:this
- // }
-  
-  stage('Test') {
-     dockerExecute ( script: this, dockerImage: 'node:8-stretch' ) {
-	   sh '''
-		   cd MySampleApp && npm config set @sap:registry "https://npm.sap.com" && npm install && npm run-script test
-	   '''
-	 }
   }
+  options {
+    skipDefaultCheckout()
+    timestaps()
+  }
+  stages {
+    stage('Init') {
+      steps {
+        script {
+          scmInfo = checkout(scm)
+          writeFile file: ".pipeline/config.yml",
+                    text: configYml()
+          
+          piperPipelineStageInit script: this,
+                                 skipCheckout : true,
+                                 scmInfo      : scmInfo
 
-  stage('Deploy')   {
-      cloudFoundryDeploy script:this, deployTool:'mtaDeployPlugin', verbose: true
+          sh "ls -la"
+                                 
+        }
+      }
+    }
   }
+}
+
+def configYml() {
+  """|general:
+     |  buildTool: 'mta'
+     |""".stripMargin()
 }
