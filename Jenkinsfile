@@ -18,11 +18,12 @@ pipeline {
           writeFile file: ".pipeline/config.yml",
                     text: configYml()
           
+          sh "ls -la"
+          
           piperPipelineStageInit script: this,
                                  skipCheckout : true,
                                  scmInfo      : scmInfo
 
-          sh "ls -la"
                                  
         }
       }
