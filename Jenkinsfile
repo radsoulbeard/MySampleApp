@@ -7,7 +7,7 @@ pipeline {
   }
   options {
     skipDefaultCheckout()
-    timestaps()
+    timestamps()
   }
   stages {
     stage('Init') {
