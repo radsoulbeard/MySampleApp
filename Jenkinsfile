@@ -19,6 +19,7 @@ pipeline {
                     text: configYml()
           
           sh "ls -la"
+          sh "cat .pipeline/config.yml"
           
           piperPipelineStageInit script: this,
                                  skipCheckout : true,
