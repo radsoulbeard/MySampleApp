@@ -3,6 +3,7 @@
 pipeline {
   agent any
   environment {
+     IT_IS_A_TEST = 'Test'
 
   }
   options {
