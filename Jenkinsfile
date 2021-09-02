@@ -35,5 +35,6 @@ pipeline {
 def configYml() {
   """|general:
      |  buildTool: 'mta'
+     |  verbose: true
      |""".stripMargin()
 }
