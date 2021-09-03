@@ -43,7 +43,7 @@ pipeline {
             piperPipelineStageInit script: this,
                                  skipCheckout : true,
                                  scmInfo      : scmInfo,
-                                 stashConten. : ['all'],
+                                 stashContent : ['all'],
                                  configFile: '.pipeline/config.yml'                                 
         }
       
