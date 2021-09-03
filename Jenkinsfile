@@ -24,7 +24,9 @@ pipeline {
           
           piperPipelineStageInit script: this,
                                  skipCheckout : true,
-                                 scmInfo      : scmInfo
+                                 scmInfo      : scmInfo,
+                                 configFile: '.pipeline/config.yml'
+
 
                                  
         }
