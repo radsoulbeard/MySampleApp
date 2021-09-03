@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage('Init') {
         steps {
-          node {
+          node ('master') {
           script {
             scmInfo = checkout(scm)
             writeFile file: ".pipeline/config.yml",
