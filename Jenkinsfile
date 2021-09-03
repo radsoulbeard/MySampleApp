@@ -12,8 +12,8 @@ pipeline {
   }
   stages {
     stage('Init') {
-      node('Initnode'){
         steps {
+          node('Initnode'){
           script {
             scmInfo = checkout(scm)
             writeFile file: ".pipeline/config.yml",
@@ -30,6 +30,7 @@ pipeline {
         }
       }
       }
+      
    
     }
   }
