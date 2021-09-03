@@ -13,13 +13,19 @@ pipeline {
   stages {
     
     stage('Build golang') {
-      deleteDir()
+      steps {
+        script {
+          deleteDir()
       git url:'https://github.com/radsoulbeard/jenkins-library.git', branch: 'master'
       dockerExecute(script: this, dockerImage: 'docker.wdf.sap.corp:50000/golang:1.15') {
         sh 'GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o piper . && chmod 777 piper'
       }
       sh "./piper --help"
       stash name: 'piper-bin', includes: 'piper'
+
+        }
+      }
+      
   }
     
     stage('Init') {
