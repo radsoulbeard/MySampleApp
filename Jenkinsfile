@@ -12,25 +12,25 @@ pipeline {
   }
   stages {
     stage('Init') {
-      steps {
-        script {
-          scmInfo = checkout(scm)
-          writeFile file: ".pipeline/config.yml",
-                    text: configYml()
+      node('Initnode'){
+        steps {
+          script {
+            scmInfo = checkout(scm)
+            writeFile file: ".pipeline/config.yml",
+                      text: configYml()
           
-          stash name: 'all'
-          sh "ls -la"
-          sh "cat .pipeline/config.yml"
+            stash name: 'all'
+            sh "ls -la"
+            sh "cat .pipeline/config.yml"
           
-          piperPipelineStageInit script: this,
+            piperPipelineStageInit script: this,
                                  skipCheckout : true,
                                  scmInfo      : scmInfo,
-                                 configFile: '.pipeline/config.yml'
-
-
-                                 
+                                 configFile: '.pipeline/config.yml'                                 
         }
       }
+      }
+   
     }
   }
 }
