@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage('Init') {
         steps {
-          node ('master') {
+          ws ("${JENKINS_HOME}/jobs/myWSInit") {
           script {
             scmInfo = checkout(scm)
             writeFile file: ".pipeline/config.yml",
