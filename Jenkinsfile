@@ -18,6 +18,7 @@ pipeline {
           writeFile file: ".pipeline/config.yml",
                     text: configYml()
           
+          stash name: 'all' includes: '*/**'
           sh "ls -la"
           sh "cat .pipeline/config.yml"
           
