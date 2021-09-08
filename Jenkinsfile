@@ -32,11 +32,12 @@ pipeline {
         steps {
           script {
             deleteDir()
+            def utils = new Utils()
             scmInfo = checkout(scm)
             writeFile file: ".pipeline/config.yml",
                       text: configYml()
           
-            stash name: 'all'
+            utils.stashWithMessage('all',"Stash all did not work")
             sh "ls -la"
             sh "cat .pipeline/config.yml"
           
