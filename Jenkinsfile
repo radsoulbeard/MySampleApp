@@ -1,7 +1,8 @@
 @Library('piper-lib-os') _
 
 def checkoutMap = [$class           : 'GitSCM',
-                   branches         : [[name: 'piper']]]
+                   branches         : [[name: 'piper']],
+                   userRemoteConfigs: [[url          : 'https://github.com/radsoulbeard/MySampleApp.git']]]
 
 pipeline {
   agent any
