@@ -56,7 +56,7 @@ pipeline {
 
 def configYml() {
   """|general:
-     |  buildTool: 'mta'
+     |  buildTool: 'maven'
      |  verbose: true
      |""".stripMargin()
 }
