@@ -61,7 +61,7 @@ pipeline {
 def configYml() {
   """|general:
      |  buildTool: 'maven'
-     |  productiveBranch: 'piper'
+     |  productiveBranch: 'origin/piper'
      |  runArtifactVersioningOnPod: true
      |  verbose: true
      |steps:
