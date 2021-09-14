@@ -36,7 +36,7 @@ pipeline {
             writeFile file: ".pipeline/config.yml",
                       text: configYml()
           
-            utils.stashWithMessage('all',"Stash all did not work")
+            stash name: 'all'
             sh "ls -la"
             sh "cat .pipeline/config.yml"
           
