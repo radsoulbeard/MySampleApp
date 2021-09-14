@@ -62,6 +62,10 @@ def configYml() {
   """|general:
      |  buildTool: 'maven'
      |  productiveBranch: 'piper'
+     |  runArtifactVersioningOnPod: true
      |  verbose: true
+     |steps:
+     |  artifactPrepareVersion:
+     |    versioningType: "library"
      |""".stripMargin()
 }
