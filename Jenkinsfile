@@ -57,6 +57,7 @@ pipeline {
 def configYml() {
   """|general:
      |  buildTool: 'maven'
+     |  productiveBranch: 'piper'
      |  verbose: true
      |""".stripMargin()
 }
