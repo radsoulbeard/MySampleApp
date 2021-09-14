@@ -1,5 +1,8 @@
 @Library('piper-lib-os') _
 
+def checkoutMap = [$class           : 'GitSCM',
+                   branches         : [[name: 'piper']]]
+
 pipeline {
   agent any
   environment {
@@ -32,7 +35,7 @@ pipeline {
         steps {
           script {
             deleteDir()
-            scmInfo = checkout(scm)
+            scmInfo = checkout(checkoutMap)
             writeFile file: ".pipeline/config.yml",
                       text: configYml()
           
