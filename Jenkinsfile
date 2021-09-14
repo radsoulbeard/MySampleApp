@@ -32,7 +32,6 @@ pipeline {
         steps {
           script {
             deleteDir()
-            def utils = new Utils()
             scmInfo = checkout(scm)
             writeFile file: ".pipeline/config.yml",
                       text: configYml()
