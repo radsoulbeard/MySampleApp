@@ -1,3 +1,5 @@
+general:
+  productiveBranch: 'piper'
 steps:
   mtaBuild:
     buildTarget: 'CF'
